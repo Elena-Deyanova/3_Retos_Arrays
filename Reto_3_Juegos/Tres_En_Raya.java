@@ -1,7 +1,10 @@
 package Reto_3_Juegos;
 
+import java.util.*;
+
 public class Tres_En_Raya {
     static char[][] tablero = new char[3][3]; 
+    static Scanner lector = new Scanner(System.in); 
     public static void main(String[] args) {
         ejecutarTresEnRaya();
 
@@ -32,13 +35,24 @@ public class Tres_En_Raya {
             if (i < 2) System.out.println("---+---+---");
         }
     } 
-    /*
+    
     static int pedirFila(){ // pide una fila al usuario 
-
+        int fila; 
+        System.out.print("Dime la fila en la que quieres colocar tu movimiento: ");
+        fila = lector.nextInt(); 
+        
+        return fila; 
     }
+    
     static int pedirColumna(){ // pide una columna al usuario
+        int columna; 
+        System.out.print("Dime la columna en la que quieres colocar tu movimiento: ");
+        columna = lector.nextInt(); 
 
+        return columna; 
     }
+
+    /*
     static void mostrarMensaje(String msg){// muestra mensaje  ¿?
 
     } 

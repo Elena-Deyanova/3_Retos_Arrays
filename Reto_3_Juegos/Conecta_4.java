@@ -83,7 +83,7 @@ public class Conecta_4 {
     } 
     
     static boolean hayGanador(char[][] tablero, char jugador){// Comprueba que haya ganador
-        if (ganaPorColumnas(tablero, jugador) || ganaPorDiagonales(tablero, jugador) || ganaPorFilas(tablero, jugador)) {
+        if (ganaPorColumnas(tablero, jugador) || ganaPorDiagonalesDerecha(tablero, jugador) || ganaPorFilas(tablero, jugador) || ganaPorDiagonalesIzq(tablero, jugador)) {
             System.out.println("El jugador " + jugador + " ha ganado");
             return true; 
         }
@@ -110,34 +110,86 @@ public class Conecta_4 {
 
 
     static boolean ganaPorFilas(char[][] tablero, char jugador){ // comprueba si se gana por filas 
-        for (int i = 0; i < 6; i++) { // esta fatal, falta arreglar esto
-            for (int j = 0; j < 7; j+=4) {
+        for (int i = 0; i < tablero.length; i++) { // y aqui se usa el length normal para recorrer las filas
+        int contador = 0; 
+            for (int j = 0; j < tablero.length; j++) {
                 if (tablero[i][j] == jugador) {
+                    contador++; 
+                } else {
+                    contador = 0; 
+                }
+                if (contador == 4) {
                     return true; 
                 }
-            }    
+            }
         }
-        return false;
-            
+        
+        return false; 
     }
     
     static boolean ganaPorColumnas(char[][] tablero, char jugador){// Comprueba si se gana por columnas 
-        for (int i = 0; i < 3; i++) {
-            if (tablero[0][i] == jugador && tablero[1][i] == jugador && tablero[2][i] == jugador) {
-                return true; 
+        for (int col = 0; col < tablero[0].length; col++) { // se usa el tablero[0] para recorrer las columnas
+        int contador = 0; 
+            for (int fila = 0; fila < tablero.length; fila++) {
+                if (tablero[fila][col] == jugador) {
+                    contador++; 
+                } else {
+                    contador = 0; 
+                }
+                if (contador == 4) {
+                    return true; 
+                }
             }
         }
+        
         return false;
     } 
     
-    static boolean ganaPorDiagonales(char[][] tablero, char jugador){ // comprueba si se gana por diagonales
-      if (tablero[0][0] == jugador && tablero[1][1] == jugador && tablero[2][2] == jugador) {
-            return true;
+    static boolean ganaPorDiagonalesDerecha(char[][] tablero, char jugador){ // comprueba si se gana por diagonales
+      for (int fila = 0; fila <= tablero.length-4; fila++) {
+        for (int col = 0; col <= tablero[0].length-4; col++) {
+            int contador = 0; 
+
+            for (int k = 0; k < 4; k++) {
+                if (tablero[fila + k][col + k] == jugador) {
+                    contador++; 
+            } else {
+                break;  
+                }
+            }
+
+            
+            if (contador == 4) {
+                return true; 
+            }
         }
-        if (tablero[0][2] == jugador && tablero[1][1] == jugador && tablero[2][0] == jugador) {
-            return true;
-        }
-        return false;
+        
+      }
+
+      return false; 
     }
+
+    static boolean ganaPorDiagonalesIzq(char[][] tablero, char jugador){ // comprueba si se gana por diagonales
+      for (int fila = 0; fila <= tablero.length -4; fila++) {
+        for (int col = 3; col < tablero[0].length; col++) {
+            int contador = 0; 
+
+            for (int k = 0; k < 4; k++) {
+                if (tablero[fila + k][col - k] == jugador) {
+                    contador++; 
+            } else {
+                break;  
+                }
+            }
+
+            
+            if (contador == 4) {
+                return true; 
+            }
+        }
+        
+      }
+      return false; 
+}
 }
 

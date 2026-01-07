@@ -84,7 +84,7 @@ public class Conecta_4 {
     
     static boolean hayGanador(char[][] tablero, char jugador){// Comprueba que haya ganador
         if (ganaPorColumnas(tablero, jugador) || ganaPorDiagonalesDerecha(tablero, jugador) || ganaPorFilas(tablero, jugador) || ganaPorDiagonalesIzq(tablero, jugador)) {
-            System.out.println("El jugador " + jugador + " ha ganado");
+            System.out.println("El jugador " + jugador + " ha ganado!!!!");
             return true; 
         }
         return false; 

@@ -98,7 +98,7 @@ public class Tres_En_Raya {
     } 
     static boolean hayGanador(char[][] tablero, char jugador){// Comprueba que haya ganador
         if (ganaPorColumnas(tablero, jugador) || ganaPorDiagonales(tablero, jugador) || ganaPorFilas(tablero, jugador)) {
-            System.out.println("El jugador " + jugador + " ha ganado");
+            System.out.println("El jugador " + jugador + " ha ganado!!!");
             return true; 
         }
         return false; 

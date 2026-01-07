@@ -10,8 +10,9 @@ public class BuscaMinas {
     public static void main(String[] args) {
         //ejecutarBuscaminas();
 
-        char[][] minas = colocarMinas(tablero, 3); 
-        inicializarTablero(minas);
+        tableroOculto(tablero, 3);
+        
+        //inicializarTablero(minas);
         
         
         
@@ -85,15 +86,26 @@ public class BuscaMinas {
         visible(tablero);
     }
 
-    static void tableroOculto(char[][] tablero){
+    /*static void colocarMinas (char[][] tableroOculto, int minas){
+        for (int i = 0; i < minas; i++) {
+            int random = (int) ((Math.random()*8)); 
+            tableroOculto[random][random] = '*';     
+        }
+        tableroOculto(tableroOculto); 
+    }*/
+
+    static void tableroOculto(char[][] tablero, int minas){
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                tablero[i][j] = ' ';
+                for (int j2 = 0; j2 <=  minas; j2++) {
+                    int random = (int) ((Math.random()*8)); 
+                    tablero[random][random] = '*';   
+                } 
             }
         }
+        visible(tablero); 
 
         // Mostrar el tablero vacío
-        visible(tablero);
     }
 
     static boolean esJugadaValida(char[][] tablero, int fila, int col){// comprueba que la jugada sea valida, es decir que esté vacío y que este en el 3x3
@@ -108,14 +120,6 @@ public class BuscaMinas {
         return false; 
     } 
 
-    static char[][] colocarMinas (char[][] tableroOculto, int minas){
-        
-        
-        for (int i = 0; i < minas; i++) {
-            int random = (int) ((Math.random()*8)); 
-            tableroOculto[random][random] = '*';     
-        }
-        return tableroOculto; 
-    }
+    
 
 }

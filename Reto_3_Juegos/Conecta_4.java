@@ -6,11 +6,11 @@ public class Conecta_4 {
     static char[][] tablero = new char[6][7]; 
     static Scanner lector = new Scanner(System.in); 
     public static void main(String[] args) {
-        ejecutarTresEnRaya();
+        ejecutarConecta4();
     }
 
     //===== metodos de UI ======
-    static void ejecutarTresEnRaya(){// metodo que se usará como un main, pero sin serlo, de esta manera el main quedara más limpio
+    static void ejecutarConecta4(){// metodo que se usará como un main, pero sin serlo, de esta manera el main quedara más limpio
         char jugadorActual = 'X'; 
         int columna; 
         boolean hayGanador = false; 

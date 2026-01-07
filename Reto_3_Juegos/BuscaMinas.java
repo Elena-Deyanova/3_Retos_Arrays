@@ -1,7 +1,7 @@
-public package Reto_3_Juegos;
+package Reto_3_Juegos;
 
-class BuscaMinas {
+public class BuscaMinas {
     public static void main(String[] args) {
-        
+        //prueba
     }
 }
